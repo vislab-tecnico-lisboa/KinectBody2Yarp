@@ -41,3 +41,19 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.pdb
+*.obj
+*.idb
+*.tlog
+*.log
+*.vcxproj
+*.filters
+*.user
+FloorPlane
+geometry_msgs_Point
+geometry_msgs_Quaternion
+JointROSmsg
+*.zip
+KinectTrackedPeopleMessage
+ReadMe.txt
+std_msgs_Header
