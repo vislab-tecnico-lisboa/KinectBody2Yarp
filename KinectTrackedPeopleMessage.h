@@ -29,6 +29,7 @@
 #include "FloorPlane.h"
 #include "geometry_msgs_Point.h"
 #include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
 #include "JointROSmsg.h"
 #include "Body.h"
 #include "TickTime.h"
@@ -184,9 +185,11 @@ int64 typeNum\n\
 string typeStr\n\
 \n\
 # Position in space and orientation\n\
-geometry_msgs/Point position\n\
-geometry_msgs/Quaternion orientation\n\
+geometry_msgs/Pose pose\n\
 \n================================================================================\n\
+MSG: geometry_msgs/Pose\n\
+geometry_msgs/Point position\n\
+geometry_msgs/Quaternion orientation\n================================================================================\n\
 MSG: geometry_msgs/Point\n\
 float64 x\n\
 float64 y\n\
@@ -205,7 +208,7 @@ string frame_id";
   // Name the class, ROS will need this
   yarp::os::Type getType() {
     yarp::os::Type typ = yarp::os::Type::byName("KinectTrackedPeopleMessage","KinectTrackedPeopleMessage");
-    typ.addProperty("md5sum",yarp::os::Value("27ffe427729ee77b420e15a61e0902d2"));
+    typ.addProperty("md5sum",yarp::os::Value("cfea7ab13a7f712a0dd20a9761106322"));
     typ.addProperty("message_definition",yarp::os::Value(getTypeText()));
     return typ;
   }

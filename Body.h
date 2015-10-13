@@ -19,6 +19,7 @@
 #include "FloorPlane.h"
 #include "geometry_msgs_Point.h"
 #include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
 #include "JointROSmsg.h"
 
 class Body : public yarp::os::idl::WirePortable {
@@ -126,9 +127,11 @@ int64 typeNum\n\
 string typeStr\n\
 \n\
 # Position in space and orientation\n\
-geometry_msgs/Point position\n\
-geometry_msgs/Quaternion orientation\n\
+geometry_msgs/Pose pose\n\
 \n================================================================================\n\
+MSG: geometry_msgs/Pose\n\
+geometry_msgs/Point position\n\
+geometry_msgs/Quaternion orientation\n================================================================================\n\
 MSG: geometry_msgs/Point\n\
 float64 x\n\
 float64 y\n\
@@ -143,7 +146,7 @@ float64 w";
   // Name the class, ROS will need this
   yarp::os::Type getType() {
     yarp::os::Type typ = yarp::os::Type::byName("Body","Body");
-    typ.addProperty("md5sum",yarp::os::Value("06eeb572632c0459442d402176bc5b63"));
+    typ.addProperty("md5sum",yarp::os::Value("4ad73cf7542a93600ae50d374a707ece"));
     typ.addProperty("message_definition",yarp::os::Value(getTypeText()));
     return typ;
   }
