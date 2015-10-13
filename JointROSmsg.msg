@@ -5,6 +5,5 @@ int64 typeNum
 string typeStr
 
 # Position in space and orientation
-geometry_msgs/Point position
-geometry_msgs/Quaternion orientation
+geometry_msgs/Pose pose
 

@@ -16,6 +16,7 @@
 #include "FloorPlane.h"
 #include "geometry_msgs_Point.h"
 #include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
 #include "JointROSmsg.h"
 #include "Body.h"
 #include "TickTime.h"

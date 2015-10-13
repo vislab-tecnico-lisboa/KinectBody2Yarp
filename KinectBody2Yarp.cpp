@@ -228,13 +228,13 @@ int main()
 								// ROS Message
 								body.joints[type].typeNum = type;
 								body.joints[type].typeStr = JointTypesStr[type];
-								body.joints[type].position.x = joint[type].Position.X;
-								body.joints[type].position.y = joint[type].Position.Y;
-								body.joints[type].position.z = joint[type].Position.Z;
-								body.joints[type].orientation.x = jointsOrientations[type].Orientation.x;
-								body.joints[type].orientation.y = jointsOrientations[type].Orientation.y;
-								body.joints[type].orientation.z = jointsOrientations[type].Orientation.z;
-								body.joints[type].orientation.w = jointsOrientations[type].Orientation.w;
+								body.joints[type].pose.position.x = joint[type].Position.X;
+								body.joints[type].pose.position.y = joint[type].Position.Y;
+								body.joints[type].pose.position.z = joint[type].Position.Z;
+								body.joints[type].pose.orientation.x = jointsOrientations[type].Orientation.x;
+								body.joints[type].pose.orientation.y = jointsOrientations[type].Orientation.y;
+								body.joints[type].pose.orientation.z = jointsOrientations[type].Orientation.z;
+								body.joints[type].pose.orientation.w = jointsOrientations[type].Orientation.w;
 
 							}
 							//cout << sendBottle.toString().c_str() << endl; 
