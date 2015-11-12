@@ -13,53 +13,57 @@ macro(CHECK_FILES _FILES _DIR)
    endforeach()
    if(_MISSING_FILES)
       message(STATUS "In folder \"${${_DIR}}\" not found files: ${_MISSING_FILES}")
-      set(KinectSDK_FOUND FALSE)
+      set(KinectSDK20_FOUND FALSE)
    endif()
 endmacro()
 
 macro(CHECK_DIR _DIR)
    if(NOT EXISTS "${${_DIR}}")
       message(STATUS "Folder \"${${_DIR}}\" not found.")
-      set(KinectSDK_FOUND FALSE)
+      set(KinectSDK20_FOUND FALSE)
    endif()
 endmacro()
 
 ##################### Checking #######################
 
-set(KinectSDK_ROOT         $ENV{KINECTSDK20_DIR})
-set(KinectSDK_LIB_DIR      ${KinectSDK_ROOT}/Lib/x64) # THIS SHOULD BE AUTOMATIC TO CHOOSE BETWEEN x64 and x86
-set(KinectSDK_INCLUDE_DIRS ${KinectSDK_ROOT}/inc)
-set(KinectSDK_LIBRARIES    ${KinectSDK_LIB_DIR}/Kinect20.lib)
-mark_as_advanced(KinectSDK_ROOT)
-mark_as_advanced(KinectSDK_LIB_DIR)
+set(KinectSDK20_ROOT         $ENV{KINECTSDK20_DIR})
+set(KinectSDK20_LIB_DIR      ${KinectSDK20_ROOT}/Lib/x64) # THIS SHOULD BE AUTOMATIC TO CHOOSE BETWEEN x64 and x86
+set(KinectSDK20_INCLUDE_DIRS ${KinectSDK20_ROOT}/inc)
+set(KinectSDK20_LIBRARIES    ${KinectSDK20_LIB_DIR}/Kinect20.lib)
+mark_as_advanced(KinectSDK20_ROOT)
+mark_as_advanced(KinectSDK20_LIB_DIR)
 
 message(STATUS "Searching KinectSDK.")
-set(KinectSDK_FOUND TRUE)
+set(KinectSDK20_FOUND TRUE)
 
-check_dir(KinectSDK_ROOT)
-if(KinectSDK_FOUND)
-   check_dir(KinectSDK_LIB_DIR)
-   check_dir(KinectSDK_INCLUDE_DIRS)
+check_dir(KinectSDK20_ROOT)
+if(KinectSDK20_FOUND)
+   check_dir(KinectSDK20_LIB_DIR)
+   check_dir(KinectSDK20_INCLUDE_DIRS)
    
-   if(KinectSDK_FOUND)
-      check_files(KinectSDK_LIBRARIES KinectSDK_LIB_DIR)
+   if(KinectSDK20_FOUND)
+      check_files(KinectSDK20_LIBRARIES KinectSDK20_LIB_DIR)
 
-      if(KinectSDK_FOUND)	
-	     set(KinectSDK_INCLUDES ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionApi.h
-                                ${KinectSDK_INCLUDE_DIRS}/Kinect.Face.h
-                                ${KinectSDK_INCLUDE_DIRS}/Kinect.h
-                                ${KinectSDK_INCLUDE_DIRS}/Kinect.INPC.h
-                                ${KinectSDK_INCLUDE_DIRS}/Kinect.VisualGestureBuilder.h
-                                ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionBase.h
-                                ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionCameraPoseFinder.h
-                                ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionColorVolume.h
-                                ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionDepthProcessor.h
-                                ${KinectSDK_INCLUDE_DIRS}/NuiKinectFusionVolume.h)
-		 mark_as_advanced(KinectSDK_INCLUDES)
-         check_files(KinectSDK_INCLUDES KinectSDK_INCLUDE_DIRS)
+      if(KinectSDK20_FOUND)	
+	     set(KinectSDK20_INCLUDES ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionApi.h
+                                ${KinectSDK20_INCLUDE_DIRS}/Kinect.Face.h
+                                ${KinectSDK20_INCLUDE_DIRS}/Kinect.h
+                                ${KinectSDK20_INCLUDE_DIRS}/Kinect.INPC.h
+                                ${KinectSDK20_INCLUDE_DIRS}/Kinect.VisualGestureBuilder.h
+                                ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionBase.h
+                                ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionCameraPoseFinder.h
+                                ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionColorVolume.h
+                                ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionDepthProcessor.h
+                                ${KinectSDK20_INCLUDE_DIRS}/NuiKinectFusionVolume.h)
+		 mark_as_advanced(KinectSDK20_INCLUDES)
+         check_files(KinectSDK20_INCLUDES KinectSDK20_INCLUDE_DIRS)
 	  endif()
    endif()
 endif()
 
-message(STATUS "KinectSDK_FOUND: ${KinectSDK_FOUND}.")
+message(STATUS "KinectSDK20_FOUND: ${KinectSDK20_FOUND}.")
+
+if(NOT KinectSDK20_FOUND)
+	message(FATAL_ERROR "KinectSDK20 NOT FOUND - AND WITHOUT THIS MESSAGE CMAKE IS NOT STOPPING WITH AN ERROR ON REQUIRED PACKAGE NOT FOUND!")
+endif()
 
