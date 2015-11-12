@@ -9,7 +9,7 @@ project(${PROJECTNAME})
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}) # For reading the FindKinectSDK20.cmake
 
 find_package(YARP REQUIRED) # Requires YARP_DIR to be set to the root directory, and to have the /bin folder in the PATH, but when installing from binaries it sets everything automatically :)
-find_package(KinectSDK20 REQUIRED) # Requires KINECTSDK20_DIR environment variable. Provides KinectSDK_LIB_DIR, KinectSDK_INCLUDE_DIRS, KinectSDK_LIBRARIES
+find_package(KinectSDK20 REQUIRED) # Requires KINECTSDK20_DIR environment variable (but when istaling the SDK he already sets it, automatically). Provides KinectSDK_LIB_DIR, KinectSDK_INCLUDE_DIRS, KinectSDK_LIBRARIES
 find_package(OpenCV REQUIRED)  # Requires having the OpenCV_DIR environment variable set to the base directory of OpenCv tree to use (Note it is CASE-SENSITIVE).
 
 
