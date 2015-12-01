@@ -14,6 +14,7 @@ Connects to Kinect v2, opens Yarp Bottle port, ROS message topic, and sends the 
 To compile:
 
 Run CMake gui setting the source folder to the folder of this code, and the build folder to anything of your choice (suggested same folder/build)
+
 **BEWARE** The default MSCV compiler chosen by Cmake in the GUI is actually 32bit one, you have to choose in the dropdown menu the explicit 64bit one.
 
 
