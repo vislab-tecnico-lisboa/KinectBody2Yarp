@@ -7,6 +7,7 @@ Connects to Kinect v2, opens Yarp Bottle port, ROS message topic, and sends the 
 ~ Prerequisites: This code requires OpenCV, Yarp, and Kinect SDK v2, and Kinect SDK v2 requires Windows 8.
 
 ~ Requires: OpenCV_DIR environment variable (case sensitive!) to be set to opencv_root\Build where a OpenCVConfig.cmake is located (this superseeds what is suggested in OpenCV website, that they suggest you set it to OpenCV/Build/x64/vc11 )
+            opencv correct bin folder added to PATH environement variable
 
 ~~~~~~~~~~~~~~~~
 
