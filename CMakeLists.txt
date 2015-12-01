@@ -19,6 +19,7 @@ list(APPEND CMAKE_MODULE_PATH ${YARP_MODULE_PATH}) # To be able to load files Ya
 find_package(OpenCV REQUIRED)  # Requires having the OpenCV_DIR (CASE-SENSITIVE) environment variable set to folder with an OpenCVConfig.cmake file.
 # OpenCV installation is just a zip file unpacking, and they suggest you set by hand the OPENCV_DIR to (i.e., ...opencv\Build\x64\vc11) and add that same folder/bin to PATH
 # but this is irrelevant to Cmake needs, Cmake needs OpenCV_DIR (case-sensitive, and windows does not allow to have also a OPENCV_DIR variable) to be set to opencv\Build where a OpenCVConfig.cmake is, and it adds the include dirs hard-coded to the OpenCVConfig directory/include
+# BUT DON'T FORGET TO SET the \bin to PATH env variable 
 
 add_definitions(${YARP_DEFINES})   
 include(YarpInstallationHelpers) 
